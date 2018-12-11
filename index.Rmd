@@ -1,0 +1,29 @@
+--- 
+title: "Channel Islands National Marine Sanctuary Condition Report 2016"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [style/zotero_nps.bib, style/packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: ecoquants/nps-r-workshop
+description: "Sanctuary condition reports are a tool employed by the National Oceanic and Atmospheric Administration (NOAA) to assess the status and trends of national marine sanctuary resources. Condition reports provide a standardized summary of resources in NOAA’s sanctuaries; drivers and pressures on those resources; current conditions and trends for resources and ecosystem services; and describe existing management responses to the pressures that threaten the integrity of the marine environment. Condition reports include information on the status and trends of water quality, habitat, living resources and maritime archaeological resources, and the human activities that affect them. They present responses to a set of questions posed to all sanctuaries. The reports also rate ecosystem service status and trends. Resource and ecosystem service status are rated on a scale from good to poor, and the timelines used for comparison vary from topic to topic. Trends in the status of resources and ecosystem services are also reported, and are generally based on observed changes in status since the prior condition report, unless otherwise specified."
+---
+
+```{r include=FALSE, eval=F}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'style/packages.bib')
+```
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+#library(leaflet)
+#library(sf)
+opts_chunk$set(echo = F)
+```
+
+
+
