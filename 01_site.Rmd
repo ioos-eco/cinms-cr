@@ -14,8 +14,28 @@ within the U.S. Department of Commerce, and managed to promote ecosystem conserv
 
 The sanctuary surrounds and partially overlaps Channel Islands National Park, a terrestrial and marine protected area of national and global significance. The park is administered by the Department of the Interior’s National Park Service. The park consists of 250,000 acres of land on San Miguel, Santa Rosa, Santa Cruz, Anacapa, and Santa Barbara Islands, and waters within one nautical mile of each island (Figure SH.1). Channel Islands National Park monitors and protects threatened and endangered species, restores ecosystems, and preserves the natural and cultural resources for current and future generations.
 
-![Figure SH.1. Channel Islands National Marine Sanctuary surrounds the terrestrial portion of Channel Islands National Park, overlaps with the marine portion of the park and California state waters, and also encompasses U.S. federal waters. Map: M. Cajandig/NOAA](./figures/p020_SH.1.png)
- 
+```{r, fig.cap="Figure SH.1. Channel Islands National Marine Sanctuary surrounds the terrestrial portion of Channel Islands National Park, overlaps with the marine portion of the park and California state waters, and also encompasses U.S. federal waters. Map: M. Cajandig/NOAA"}
+library(tidyverse)
+library(here)
+library(glue)
+library(fs)
+library(sf)
+library(leaflet)
+
+url <- "https://sanctuaries.noaa.gov/library/imast/cinms_py2.zip"
+zip <- here(glue("data/{basename(url)}"))
+dir <- here(glue("data/{path_ext_remove(basename(url))}"))
+shp <- here(glue("data/cinms_py2/cinms_py.shp"))
+download.file(url, zip)
+unzip(zip, exdir=dir)
+cinms <- read_sf(shp) %>% 
+  st_transform(4326)
+
+leaflet() %>% 
+  addProviderTiles(providers$Esri.OceanBasemap) %>% 
+  addPolygons(data=cinms)
+```
+
 ![Figure SH.2. Looking west from east Anacapa Island, one of five islands in Channel Islands National Park that is surrounded by Channel Islands National Marine Sanctuary. Photo: C. Fackler/NOAA](./figures/p021_SH.2.png)
 
 ## History

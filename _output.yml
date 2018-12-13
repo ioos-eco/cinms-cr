@@ -27,3 +27,4 @@ bookdown::word_document2:
   fig_caption: true
   #toc: yes
   #reference_docx: "template.docx" 
+  #https://rmarkdown.rstudio.com/articles_docx.html

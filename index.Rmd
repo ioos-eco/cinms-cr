@@ -23,7 +23,7 @@ library(tidyverse)
 library(knitr)
 #library(leaflet)
 #library(sf)
-opts_chunk$set(echo = F)
+opts_chunk$set(echo = F, message = F)
 
 #![](./figures/p001_cover.png)
 ```
